@@ -1,0 +1,23 @@
+
+
+<h1>Existing Equipment</h1>
+
+<table>
+  <tr>
+    <th>ID</th>
+    <th>Name</th>
+    <th>Description</th>
+    <th>Status</th>
+    <th>Update</th>
+  </tr>
+  {% for eq in equipment %}
+  <tr>
+    <td>{{ eq.id }}</td>
+    <td>{{ eq.name }}</td>
+    <td>{{ eq.description }}</td>
+    <td>{{ eq.status }}</td>
+    <td><a href="/equipment_update/{{ eq.id }}/{{ manager_id }}">Update</a></td>
+  </tr>
+  {% endfor %}
+
+</table>

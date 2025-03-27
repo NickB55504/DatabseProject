@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manager Dashboard</title>
+</head>
+<body>
+    <h1>Manager Dashboard</h1>
+    <h2>Equipment List</h2>
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Description</th>
+
+        </tr>
+        {% for eq in equipment %}
+        <tr>
+            <td>{{ eq.id }}</td>
+            <td>{{ eq.name }}</td>
+            <td>{{ eq.description }}</td>
+            <td>{{ eq.status }}</td>
+
+        </tr>
+        {% endfor %}
+    </table>
+
+    <h2>Manager Actions</h2>
+    <button><a href="{{ url_for('update_inventory') }}">Update Inventory DB</a></button>
+    <button><a href="{{ url_for('add_equipment') }}">Add Equipment to DB</a></button>
+
+
+    <h2>Reports</h2>
+    <ul>
+        <li><a href="{{ url_for('customer_equipment_report') }}">Customer Equipment Report</a></li>
+        <li><a href="{{ url_for('all_customers_report') }}">All Customers Report</a></li>
+        <li><a href="{{ url_for('unpaid_customers_report') }}">Unpaid Customers Report</a></li>
+        <li><a href="{{ url_for('payments_report') }}">Payments Report</a></li>
+        <li><a href="{{ url_for('profit_report') }}">Profit Report</a></li>
+    </ul>
+</body>
+</html>

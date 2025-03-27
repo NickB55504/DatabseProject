@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Client Dashboard</title>
+</head>
+<body>
+    <h1>Welcome, {{ client['name'] }}</h1>
+    <h2>Available Equipment</h2>
+    <ul>
+        {% for item in equipment %}
+            <li>{{ item['name'] }} - {{ item['description'] }} - ${{ item['rent_price_per_day'] }} per day</li>
+        {% endfor %}
+    </ul>
+       <button><a href="{{ url_for('take_order') }}">Take Order and Display Receipt</a></button>
+</body>
+</html>

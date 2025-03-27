@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Equipment</title>
+</head>
+<body>
+    <h1>Add Equipment</h1>
+    <form action="{{ url_for('add_equipment') }}" method="post">
+        <label for="id">Equipment ID:</label>
+        <input type="number" id="id" name="id" required><br><br>
+        <label for="description">Description:</label>
+        <input type="text" id="description" name="description" required><br><br>
+        <label for="quantity_to_add">Quantity to Add:</label>
+        <input type="number" id="quantity_to_add" name="quantity_to_add" required><br><br>
+        <input type="submit" value="Add Equipment">
+    </form>
+</body>
+</html>
+

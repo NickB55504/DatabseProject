@@ -1,0 +1,31 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Update Inventory</title>
+</head>
+<body>
+    <h1>Update Inventory</h1>
+    <form method="POST">
+        <table>
+            <tr>
+                <th>Equipment ID</th>
+                <th>Equipment Name</th>
+
+                <th></th>
+                <th>New Stock</th>
+            </tr>
+            {% for equipment in equipment %}
+            <tr>
+                <td>{{ equipment.id }}</td>
+                <td>{{ equipment.name }}</td>
+
+                <td>{{ equipment.quanitity_in_store }}</td>
+                <td><input type="number" name="stock_{{ equipment.id }}" value="{{ equipment.stock }}"></td>
+            </tr>
+            {% endfor %}
+        </table>
+        <input type="submit" value="Update Inventory">
+    </form>
+</body>
+</html>

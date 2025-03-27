@@ -1,0 +1,26 @@
+<h1>Order Display</h1>
+
+<table>
+  {% for rental in rentals %}
+  <tr>
+    <td>{{ rental.customer_id }}</td>
+    <td>{{ rental.customer_name }}</td>
+    <td>{{ rental.equipment_id }}</td>
+    <td>{{ rental.equipment_name }}</td>
+  </tr>
+  {% endfor %}
+</table>
+
+<h2>Take Order</h2>
+
+<form action="{{ url_for('take_order') }}" method="post">
+  <label for="customer_id">Customer ID:</label>
+  <input type="number" id="customer_id" name="customer_id" required><br><br>
+  <label for="equipment_id">Equipment ID:</label>
+  <input type="number" id="equipment_id" name="equipment_id" required><br><br>
+  <label for="rental_date">Start Date:</label>
+  <input type="date" id="rental_date" name="rental_date" required><br><br>
+  <label for="end_date">End Date:</label>
+  <input type="date" id="end_date" name="end_date" required><br><br>
+  <input type="submit" value="Take Order">
+</form>

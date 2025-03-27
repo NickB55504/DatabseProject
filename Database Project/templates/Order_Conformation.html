@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Confirmation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f0f0f0;
+        }
+    </style>
+</head>
+<body>
+    <h1>Order Confirmation</h1>
+
+    <main>
+        <section>
+            <h2>Order Summary</h2>
+            <article>
+                <h3>Client Information</h3>
+                <p>Name: {{ client.name }}</p>
+                <p>Address: {{ client.address }}</p>
+                <p>Contact: {{ client.phone }}</p>
+            </article>
+            <article>
+                <h3>Rental Equipment</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Equipment Name</th>
+                            <th>Quantity</th>
+                            <th>Price</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for item in equipment %}
+                        <tr>
+                            <td>{{ item.name }}</td>
+                            <td>{{ item.quantity }}</td>
+                            <td>${{ item.price }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </article>
+            <article>
+                <h3>Rental Details</h3>
+                <p>Rental Date: {{ rental_date }}</p>
+                <p>Total Price: ${{ total_price }}</p>
+            </article>
+        </section>
+
+        <section>
+            <h2>Contact Information</h2>
+            <p>{{ company_info.name }}</p>
+            <p>{{ company_info.address }}</p>
+            <p>Phone: {{ company_info.contact }}</p>
+        </section>
+    </main>
+
+</body>
+</html>
